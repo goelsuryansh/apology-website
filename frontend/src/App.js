@@ -254,19 +254,7 @@ function App() {
               exit={{ opacity: 0, scale: 0.8 }}
               className="text-center space-y-8"
             >
-              <motion.div
-                animate={{
-                  scale: [1, 1.2, 1],
-                  rotate: [0, 360],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  repeatDelay: 3
-                }}
-              >
-                <Heart className="w-24 h-24 mx-auto text-primary fill-primary" />
-              </motion.div>
+              <HappyCuteCharacter />
 
               <h1 className="text-5xl md:text-6xl font-heading text-primary-foreground">
                 Thank you! 🎉
