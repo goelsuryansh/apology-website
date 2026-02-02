@@ -1,0 +1,169 @@
+{
+  "design_system": {
+    "identity": {
+      "name": "E1 - The Anti-AI Designer",
+      "archetype": "Soft & Dreamy (Archetype 3)",
+      "core_philosophy": "Fusion of 'Kawaii' aesthetics with 'Neo-Brutalist' structure. Soft colors, hard grids. Emotional physics.",
+      "tone": "Sincere, Playful, Apologetic, Romantic (but lighthearted)"
+    },
+    "typography": {
+      "headings": {
+        "family": "Fredoka, Nunito, sans-serif",
+        "weight": "600",
+        "style": "Rounded, Friendly",
+        "usage": "Main titles, 'Will you forgive me?', 'Reasons'"
+      },
+      "body": {
+        "family": "Quicksand, Varela Round, sans-serif",
+        "weight": "500",
+        "style": "Clean, Legible, Soft",
+        "usage": "Paragraphs, reasons text, buttons"
+      },
+      "special": {
+        "family": "Caveat, handwriting",
+        "usage": "Personal notes, 'Sleeping Beauty' nickname, handwritten annotations"
+      }
+    },
+    "colors": {
+      "palette": {
+        "primary": "#FFB7B2",
+        "primary_foreground": "#4A3B52",
+        "secondary": "#E0BBE4",
+        "secondary_foreground": "#4A3B52",
+        "accent": "#FFDAC1",
+        "accent_foreground": "#5D4037",
+        "background": "#FFF9F5",
+        "foreground": "#4A3B52",
+        "muted": "#F5E6E8",
+        "border": "#E6C9C9"
+      },
+      "gradients": {
+        "hero": "linear-gradient(135deg, #FFF9F5 0%, #FFE4E1 100%)",
+        "button_hover": "linear-gradient(to right, #FFB7B2, #FFDAC1)"
+      },
+      "functional": {
+        "success": "#95D5B2",
+        "error": "#FF9AA2",
+        "text_subtle": "#8D7F94"
+      }
+    },
+    "visual_enhancers": {
+      "radius": {
+        "default": "1rem",
+        "button": "9999px",
+        "card": "1.5rem"
+      },
+      "shadows": {
+        "soft": "0 10px 40px -10px rgba(255, 183, 178, 0.5)",
+        "clay": "inset 2px 2px 5px rgba(255, 255, 255, 0.7), inset -3px -3px 7px rgba(0, 0, 0, 0.05), 5px 5px 15px rgba(224, 187, 228, 0.3)"
+      },
+      "glassmorphism": {
+        "card": "bg-white/60 backdrop-blur-xl border border-white/50 shadow-xl"
+      },
+      "textures": {
+        "noise": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E\")"
+      }
+    },
+    "layout": {
+      "container": "max-w-md mx-auto px-6 py-12 min-h-screen flex flex-col justify-center",
+      "grid_strategy": "Bento Grid (Mode A) for 'Reasons' section - mix of square and tall cards",
+      "spacing": "Generous padding (p-8, p-12) to create a 'cloud-like' airy feel"
+    },
+    "motion": {
+      "library": "framer-motion",
+      "physics": {
+        "type": "spring",
+        "stiffness": 300,
+        "damping": 20
+      },
+      "interactions": {
+        "hover": "scale: 1.05, rotate: 1deg",
+        "tap": "scale: 0.95",
+        "entrance": "y: 20, opacity: 0"
+      }
+    }
+  },
+  "components": {
+    "Button": {
+      "style": "Claymorphism style (rounded, soft shadow, inner glow)",
+      "variants": {
+        "primary": "bg-[#FFB7B2] text-[#4A3B52] hover:bg-[#FFC4C0]",
+        "secondary": "bg-white text-[#4A3B52] border-2 border-[#E0BBE4]"
+      }
+    },
+    "Card": {
+      "style": "Glassmorphism with soft border",
+      "classes": "bg-white/70 backdrop-blur-md rounded-3xl border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+    },
+    "NoButton": {
+      "behavior": "Must use absolute positioning and math to evade the cursor within a container. DO NOT let it go off-screen.",
+      "text_variants": ["No", "Are you sure?", "Really?", "Please?", "Don't do this!", "Okay fine..."]
+    }
+  },
+  "assets": {
+    "images": [
+      {
+        "category": "Hero/Mascot",
+        "url": "https://images.unsplash.com/photo-1601142462357-cb4b49b7af33?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1ODh8MHwxfHNlYXJjaHwzfHxjdXRlJTIwYmVhciUyMGFwb2xvZ3klMjBpbGx1c3RyYXRpb258ZW58MHx8fHwxNzcwMDA3OTkwfDA&ixlib=rb-4.1.0&q=85",
+        "description": "Cute teddy bear for the main apology screen. Use with rounded corners and soft shadow.",
+        "alt": "Sad cute teddy bear apologizing"
+      },
+      {
+        "category": "Background/Texture",
+        "url": "https://images.pexels.com/photos/7139941/pexels-photo-7139941.jpeg",
+        "description": "Soft clouds/sky texture for the background (Sleeping Beauty theme). Use with low opacity (20-30%) overlay.",
+        "alt": "Dreamy clouds background"
+      }
+    ],
+    "icons": {
+      "library": "lucide-react",
+      "mapping": {
+        "sleep": "Moon",
+        "skincare": "Sparkles",
+        "chopsticks": "UtensilsCrossed",
+        "love": "Heart",
+        "apology": "Frown"
+      }
+    }
+  },
+  "implementation_plan": {
+    "phases": [
+      {
+        "name": "Setup",
+        "tasks": [
+          "Install framer-motion, lucide-react, canvas-confetti",
+          "Configure Tailwind colors and fonts"
+        ]
+      },
+      {
+        "name": "Components",
+        "tasks": [
+          "Build 'Clay' Button component",
+          "Build 'Glass' Card component",
+          "Create 'RunAwayButton' logic"
+        ]
+      },
+      {
+        "name": "Sections",
+        "tasks": [
+          "Hero: Bear image + 'Will you forgive me?'",
+          "Interaction: Yes/No buttons",
+          "Reasons Grid: 4-5 cards explaining why he is sorry (Chopsticks, Misunderstanding, etc.)",
+          "Final: Celebration screen with confetti"
+        ]
+      }
+    ]
+  },
+  "universal_guidelines": {
+    "do_not": [
+      "Use generic 'alert' reds for errors. Use soft coral instead.",
+      "Use sharp corners. Everything must be rounded.",
+      "Use default sans-serif fonts. Import the specified Google Fonts."
+    ],
+    "must": [
+      "Add 'data-testid' to all interactive elements.",
+      "Ensure mobile responsiveness (stack grids to 1 column).",
+      "Use 'framer-motion' for all state changes."
+    ]
+  }
+}
