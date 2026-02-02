@@ -124,7 +124,19 @@ function App() {
               exit={{ opacity: 0, y: -20 }}
               className="text-center space-y-8"
             >
-              <SadCuteCharacter />
+              <motion.img
+                src="https://media.tenor.com/UTmQNO88ls8AAAAj/cat-love.gif"
+                alt="Sad cat with hearts"
+                className="w-56 h-56 mx-auto"
+                animate={{
+                  y: [0, -10, 0],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
 
               <h1 className="text-4xl md:text-5xl font-heading text-primary-foreground">
                 Will you forgive me?
