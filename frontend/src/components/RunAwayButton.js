@@ -16,7 +16,7 @@ export const RunAwayButton = ({ onCaught }) => {
   const [textIndex, setTextIndex] = useState(0);
   const [attemptCount, setAttemptCount] = useState(0);
 
-  const handleMouseEnter = () => {
+  const handleInteraction = () => {
     const newAttempts = attemptCount + 1;
     setAttemptCount(newAttempts);
 
@@ -39,11 +39,22 @@ export const RunAwayButton = ({ onCaught }) => {
     setPosition({ x: newX, y: newY });
   };
 
+  const handleClick = (e) => {
+    // If they've tried 6 times, let them click
+    if (attemptCount >= 6) {
+      onCaught();
+    } else {
+      // Otherwise, move the button (works on mobile)
+      e.preventDefault();
+      handleInteraction();
+    }
+  };
+
   return (
     <motion.button
       data-testid="no-button"
-      onMouseEnter={handleMouseEnter}
-      onClick={onCaught}
+      onMouseEnter={handleInteraction}  // Works on desktop hover
+      onClick={handleClick}  // Works on mobile tap
       animate={position}
       transition={{
         type: 'spring',
