@@ -266,7 +266,20 @@ function App() {
               exit={{ opacity: 0, scale: 0.8 }}
               className="text-center space-y-8"
             >
-              <HappyCuteCharacter />
+              <motion.img
+                src="https://media.tenor.com/lfDATg4Bhc0AAAAM/happy-cat.gif"
+                alt="Happy excited cat"
+                className="w-56 h-56 mx-auto rounded-3xl"
+                animate={{
+                  scale: [1, 1.1, 1],
+                  rotate: [0, 5, -5, 0],
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
 
               <h1 className="text-5xl md:text-6xl font-heading text-primary-foreground">
                 Thank you! 🎉
