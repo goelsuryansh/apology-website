@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
 
 export const ClayButton = ({ children, onClick, variant = 'primary', className = '', disabled = false, testId = '' }) => {
-  const baseStyles = "px-8 py-4 rounded-clay font-body font-semibold text-lg shadow-clay";
+  const baseStyles = "px-8 py-4 rounded-clay font-body font-semibold text-lg shadow-clay transition-colors duration-200";
   
   const variants = {
-    primary: "bg-primary text-primary-foreground hover:brightness-105",
-    secondary: "bg-white text-primary-foreground border-2 border-secondary hover:bg-secondary/10"
+    primary: "bg-primary text-primary-foreground hover:brightness-110 active:brightness-95",
+    secondary: "bg-white text-primary-foreground border-2 border-secondary hover:bg-secondary/10 active:bg-secondary/20"
   };
 
   return (
