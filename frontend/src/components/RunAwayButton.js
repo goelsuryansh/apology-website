@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const textVariants = [
@@ -15,8 +15,19 @@ export const RunAwayButton = ({ onCaught }) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [textIndex, setTextIndex] = useState(0);
   const [attemptCount, setAttemptCount] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
-  const handleInteraction = () => {
+  useEffect(() => {
+    // Detect if mobile
+    setIsMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
+  }, []);
+
+  const handleInteraction = (e) => {
+    // Prevent if it's a mouseenter on mobile (phantom hover)
+    if (e && e.type === 'mouseenter' && isMobile) {
+      return;
+    }
+
     const newAttempts = attemptCount + 1;
     setAttemptCount(newAttempts);
 
@@ -30,9 +41,8 @@ export const RunAwayButton = ({ onCaught }) => {
     setTextIndex((prev) => (prev + 1) % textVariants.length);
 
     // Calculate random position within safe bounds
-    // Container is roughly centered, so we keep movements moderate
-    const maxX = 150;
-    const maxY = 100;
+    const maxX = 120;
+    const maxY = 80;
     const newX = (Math.random() - 0.5) * maxX;
     const newY = (Math.random() - 0.5) * maxY;
 
@@ -40,28 +50,38 @@ export const RunAwayButton = ({ onCaught }) => {
   };
 
   const handleClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
     // If they've tried 6 times, let them click
     if (attemptCount >= 6) {
       onCaught();
     } else {
-      // Otherwise, move the button (works on mobile)
-      e.preventDefault();
-      handleInteraction();
+      // Otherwise, move the button
+      handleInteraction(e);
+    }
+  };
+
+  const handleMouseEnter = (e) => {
+    // Only trigger on desktop hover
+    if (!isMobile) {
+      handleInteraction(e);
     }
   };
 
   return (
     <motion.button
       data-testid="no-button"
-      onMouseEnter={handleInteraction}  // Works on desktop hover
-      onClick={handleClick}  // Works on mobile tap
+      onMouseEnter={handleMouseEnter}
+      onClick={handleClick}
+      onTouchStart={(e) => e.preventDefault()}
       animate={position}
       transition={{
         type: 'spring',
         stiffness: 300,
         damping: 20
       }}
-      className="relative px-8 py-4 rounded-clay font-body font-semibold text-lg shadow-clay bg-white text-primary-foreground border-2 border-secondary hover:bg-secondary/10 cursor-pointer"
+      className="relative px-8 py-4 rounded-clay font-body font-semibold text-lg shadow-clay bg-white text-primary-foreground border-2 border-secondary hover:bg-secondary/10 active:bg-secondary/20 touch-none cursor-pointer"
     >
       {textVariants[textIndex]}
     </motion.button>
