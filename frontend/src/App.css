@@ -8,3 +8,15 @@
 * {
   box-sizing: border-box;
 }
+
+/* Hide Emergent branding */
+[class*="emergent"],
+[class*="Emergent"],
+[id*="emergent"],
+[id*="Emergent"],
+a[href*="emergent"],
+a[href*="Emergent"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
