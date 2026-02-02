@@ -78,18 +78,19 @@ function App() {
               exit={{ opacity: 0, y: -20 }}
               className="text-center space-y-8"
             >
-              <motion.div
+              <motion.img
+                src="https://media1.tenor.com/m/SuIR_xvLMZYAAAAd/cat-love.gif"
+                alt="Cute cats hugging"
+                className="w-48 h-48 mx-auto rounded-3xl"
                 animate={{ 
-                  rotate: [0, 5, -5, 5, 0],
+                  scale: [1, 1.05, 1],
                 }}
                 transition={{
                   duration: 2,
                   repeat: Infinity,
-                  repeatDelay: 3
+                  ease: "easeInOut"
                 }}
-              >
-                <Moon className="w-20 h-20 mx-auto text-secondary" />
-              </motion.div>
+              />
               
               <h1 className="text-5xl md:text-6xl font-heading text-primary-foreground">
                 Hey there,<br />
