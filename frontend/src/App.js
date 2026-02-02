@@ -5,7 +5,6 @@ import confetti from "canvas-confetti";
 import { ClayButton } from "./components/ClayButton";
 import { GlassCard } from "./components/GlassCard";
 import { RunAwayButton } from "./components/RunAwayButton";
-import { SadCuteCharacter, HappyCuteCharacter } from "./components/CuteCharacter";
 import { Moon, Sparkles, UtensilsCrossed, Heart } from "lucide-react";
 
 function App() {
