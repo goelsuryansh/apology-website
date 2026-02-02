@@ -124,19 +124,7 @@ function App() {
               exit={{ opacity: 0, y: -20 }}
               className="text-center space-y-8"
             >
-              <motion.img
-                src="https://images.unsplash.com/photo-1601142462357-cb4b49b7af33?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1ODh8MHwxfHNlYXJjaHwzfHxjdXRlJTIwYmVhciUyMGFwb2xvZ3klMjBpbGx1c3RyYXRpb258ZW58MHx8fHwxNzcwMDA3OTkwfDA&ixlib=rb-4.1.0&q=85"
-                alt="Sad cute teddy bear"
-                className="w-64 h-64 object-cover rounded-3xl mx-auto shadow-soft"
-                animate={{
-                  y: [0, -10, 0],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              />
+              <SadCuteCharacter />
 
               <h1 className="text-4xl md:text-5xl font-heading text-primary-foreground">
                 Will you forgive me?
