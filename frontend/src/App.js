@@ -159,7 +159,7 @@ function App() {
                 <RunAwayButton onCaught={handleNoCaught} />
               </div>
 
-              <p className="text-sm font-body text-text-subtle italic">
+              <p className="text-lg md:text-xl font-body text-primary font-semibold italic">
                 (Try clicking "No" if you dare... 😏)
               </p>
             </motion.div>
